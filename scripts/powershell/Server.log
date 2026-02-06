@@ -1,0 +1,4 @@
+"error: disk full" | Out-File test.log
+"warning: low memory" | Add-Content test.log
+"ERROR: network down" | Add-Content test.log
+"ok" | Add-Content test.log
