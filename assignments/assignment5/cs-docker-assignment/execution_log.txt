@@ -1,0 +1,171 @@
+==============================
+1. Docker Image Build Output
+==============================
+
+$ docker build -t cs-docker-assignment .
+docker build -t cs-docker-assignment .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  60.93kB
+Step 1/9 : FROM ubuntu:22.04
+ ---> 962f6cadeae0
+Step 2/9 : ENV DEBIAN_FRONTEND=noninteractive
+ ---> Using cache
+ ---> c5b608457d95
+Step 3/9 : RUN apt update && apt upgrade -y
+ ---> Using cache
+ ---> 887ffec3e270
+Step 4/9 : RUN apt install -y     git     lynx     gcc     build-essential
+ ---> Using cache
+ ---> 28646b4ca6aa
+Step 5/9 : RUN git clone https://github.com/mit-pdos/xv6-public.git /opt/xv6-public
+ ---> Using cache
+ ---> 3c0825917160
+Step 6/9 : COPY hello.c /opt/hello.c
+ ---> ae389161337f
+Step 7/9 : WORKDIR /opt
+ ---> Running in 7f8887dae0df
+ ---> Removed intermediate container 7f8887dae0df
+ ---> 0a0deba68a05
+Step 8/9 : RUN gcc hello.c -o hello
+ ---> Running in 324acbf305b1
+ ---> Removed intermediate container 324acbf305b1
+ ---> 8403fe1c3b6a
+Step 9/9 : CMD ["./hello"]
+ ---> Running in 8d2a0144e916
+ ---> Removed intermediate container 8d2a0144e916
+ ---> 6332a892d62b
+Successfully built 6332a892d62b
+Successfully tagged cs-docker-assignment:latest
+
+
+==============================
+2. Running the Docker Container
+==============================
+hasibur@hasibur-VirtualBox:~/Documents/cs380/operating-system/assignments/assignment5/cs-docker-assignment$ docker run cs-docker-assignment
+Hello World
+My name is Hasibur Rahman
+
+
+
+
+==============================
+3. Verification Steps
+==============================
+
+$ docker run cs-docker-assignment lynx --version
+hasibur@hasibur-VirtualBox:~/Documents/cs380/operating-system/assignments/assignment5/cs-docker-assignment$ docker run cs-docker-assignment lynx --version
+Lynx Version 2.9.0dev.10 (11 Aug 2021)
+libwww-FM 2.14, SSL-MM 1.4.1, GNUTLS 3.7.1, ncurses 6.3.20211021(wide)
+Built on linux-gnu.
+
+Copyrights held by the Lynx Developers Group,
+the University of Kansas, CERN, and other contributors.
+Distributed under the GNU General Public License (Version 2).
+See https://lynx.invisible-island.net/ and the online help for more information.
+
+
+
+$ docker run cs-docker-assignment ls /opt/xv6-public
+
+hasibur@hasibur-VirtualBox:~/Documents/cs380/operating-system/assignments/assignment5/cs-docker-assignment$ docker run cs-docker-assignment ls /opt/xv6-public
+BUGS
+LICENSE
+Makefile
+Notes
+README
+TRICKS
+asm.h
+bio.c
+bootasm.S
+bootmain.c
+buf.h
+cat.c
+console.c
+cuth
+date.h
+defs.h
+dot-bochsrc
+echo.c
+elf.h
+entry.S
+entryother.S
+exec.c
+fcntl.h
+file.c
+file.h
+forktest.c
+fs.c
+fs.h
+gdbutil
+grep.c
+ide.c
+init.c
+initcode.S
+ioapic.c
+kalloc.c
+kbd.c
+kbd.h
+kernel.ld
+kill.c
+lapic.c
+ln.c
+log.c
+ls.c
+main.c
+memide.c
+memlayout.h
+mkdir.c
+mkfs.c
+mmu.h
+mp.c
+mp.h
+param.h
+picirq.c
+pipe.c
+pr.pl
+printf.c
+printpcs
+proc.c
+proc.h
+rm.c
+runoff
+runoff.list
+runoff.spec
+runoff1
+sh.c
+show1
+sign.pl
+sleep1.p
+sleeplock.c
+sleeplock.h
+spinlock.c
+spinlock.h
+spinp
+stat.h
+stressfs.c
+string.c
+swtch.S
+syscall.c
+syscall.h
+sysfile.c
+sysproc.c
+toc.ftr
+toc.hdr
+trap.c
+trapasm.S
+traps.h
+types.h
+uart.c
+ulib.c
+umalloc.c
+user.h
+usertests.c
+usys.S
+vectors.pl
+vm.c
+wc.c
+x86.h
+zombie.c
