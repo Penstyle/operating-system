@@ -119,7 +119,7 @@ Sniffer detecting TCP
 
 Sniffer detecting UDP
 
-These go into your PDF lab report.
+These are in my lab report.
 
 8. Notes
 All programs use the loopback interface (127.0.0.1).
